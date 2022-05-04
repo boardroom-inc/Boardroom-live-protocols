@@ -14,15 +14,14 @@ import { Main } from "../components/Main";
 import { DarkModeSwitch } from "../components/DarkModeSwitch";
 import { CTA } from "../components/CTA";
 import { Footer } from "../components/Footer";
-import Data from "../components/Data";
 
 const Index = () => (
   <Container height="100vh">
     <Hero />
     <Main>
-      <Text color="text">
-        Example repository of <Code>Next.js</Code> + <Code>chakra-ui</Code> +{" "}
-        <Code>TypeScript</Code>.
+      <Text color="text" mt={8}>
+        Work in progress.
+        This app exclusively lists all live projects that Boardroom.io supports.
       </Text>
 
       <List spacing={3} my={0} color="text">
@@ -30,23 +29,48 @@ const Index = () => (
           <ListIcon as={CheckCircleIcon} color="green.500" />
           <ChakraLink
             isExternal
-            href="https://chakra-ui.com"
+            href="https://boardroom.io/"
             flexGrow={1}
             mr={2}
           >
-            Chakra UI <LinkIcon />
+            Boardroom UI <LinkIcon />
           </ChakraLink>
         </ListItem>
         <ListItem>
           <ListIcon as={CheckCircleIcon} color="green.500" />
-          <ChakraLink isExternal href="https://nextjs.org" flexGrow={1} mr={2}>
-            Next.js <LinkIcon />
+          <ChakraLink
+            isExternal
+            href="https://swagger.boardroom.info/"
+            flexGrow={1}
+            mr={2}
+          >
+            Boardroom API <LinkIcon />
           </ChakraLink>
         </ListItem>
-        <Data data={undefined} />
+        <ListItem>
+          <ListIcon as={CheckCircleIcon} color="green.500" />
+          <ChakraLink
+            isExternal
+            href="https://docs.boardroom.info/"
+            flexGrow={1}
+            mr={2}
+          >
+            Documentation <LinkIcon />
+          </ChakraLink>
+        </ListItem>
+        <ListItem>
+          <ListIcon as={CheckCircleIcon} color="green.500" />
+          <ChakraLink
+            isExternal
+            href="https://discord.gg/EtnpXen9eV"
+            flexGrow={1}
+            mr={2}
+          >
+            Discord <LinkIcon />
+          </ChakraLink>
+        </ListItem>
       </List>
     </Main>
-
     <DarkModeSwitch />
     <Footer>
       <Text>Next ❤️ Chakra</Text>
