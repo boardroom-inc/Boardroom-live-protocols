@@ -34,7 +34,7 @@ export const CTA = () => (
       mx={2}
       width="full"
     >
-      View List of Protocols
+      View List of Integrations
     </Button>
   </Container>
 )
