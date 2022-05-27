@@ -26,7 +26,7 @@ export const CTA = () => (
     </Button>
     <Button
       as={ChakraLink}
-      href="/protocols"
+      href="/intergations"
       variant="solid"
       colorScheme="blue"
       rounded="button"
