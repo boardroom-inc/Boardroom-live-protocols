@@ -1,22 +1,23 @@
-import { useState, useEffect } from "react";
-import { Heading } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import {
+  chakra,
+  Heading,
+  IconButton,
   Tag,
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-  TableContainer,
+  Flex,
+  useColorModeValue,
+  Button,
+  useBreakpointValue,
+  Stack,
+  SimpleGrid,
+  Center,
 } from "@chakra-ui/react";
-import Navbar from "../components/Navbar";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import Link from "next/link";
 import SimpleNavbar from "../components/SimpleNavbar";
 
-export default function Protocols() {
-  const [data, setData] = useState(null);
+export default function Component() {
+  const [apidata, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -30,45 +31,102 @@ export default function Protocols() {
   }, []);
 
   if (isLoading) return <p>Loading...</p>;
-  if (!data) return <p>No profile data</p>;
-  console.log(data);
-  console.log(typeof data);
+  if (!apidata) return <p>No profile data</p>;
+  console.log(apidata);
+  console.log(typeof apidata);
+  const data = [
+    { name: "Segun Adebayo", email: "sage@chakra.com" },
+    { name: "Josef Nikolas", email: "Josef@mail.com" },
+    { name: "Lazar Nikolov", email: "Lazar@mail.com" },
+    { name: "Abraham", email: "abraham@anu.com" },
+  ];
+  const dataColor = useColorModeValue("white", "gray.800");
+  const bg = useColorModeValue("white", "gray.800");
+  const bg2 = useColorModeValue("gray.200", "gray.700");
+
   return (
-    <div>
-      <SimpleNavbar/>
-      <TableContainer>
-        <Table variant="simple" colorScheme="blue">
-          <TableCaption>All Boardroom Live Protocols</TableCaption>
-          <Thead>
-            <Tr>
-              <Th>Name</Th>
-              <Th>Type</Th>
-              <Th>Category</Th>
-              <Th>Live?</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {data.map((ele) => {
-              return (
-                <Tr key={ele.cname}>
-                  <Td>{ele.name}</Td>
-                  <Td>{ele.type}</Td>
-                  <Td>{ele.categories}</Td>
-                  <Td>{ele.isEnabled ? <Tag colorScheme='green'>Enabled</Tag> : <Tag colorScheme='red'>Disabled</Tag>}</Td>
-                </Tr>
-              );
-            })}
-          </Tbody>
-          <Tfoot>
-            <Tr>
-              <Th>Name</Th>
-              <Th>Type</Th>
-              <Th>Category</Th>
-              <Th>Live?</Th>
-            </Tr>
-          </Tfoot>
-        </Table>
-      </TableContainer>
-    </div>
+    <>
+      <SimpleNavbar />
+      <Center mt={5}>
+        {" "}
+        <Heading as='h3' size='lg'>All Live Integrations</Heading>
+      </Center>
+      <Flex
+        w="full"
+        bg="white"
+        p={50}
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Stack
+          direction={{ base: "column" }}
+          w="full"
+          bg={{ md: bg }}
+          shadow="lg"
+        >
+          {apidata.map((ele) => {
+            return (
+              <Flex
+                direction={{ base: "row", md: "column" }}
+                bg={dataColor}
+                key={ele.cname}
+              >
+                <SimpleGrid
+                  spacingY={3}
+                  columns={{ base: 1, md: 5 }}
+                  w={{ base: 200, md: "full" }}
+                  textTransform="uppercase"
+                  bg={bg2}
+                  color={"gray.500"}
+                  py={{ base: 1, md: 4 }}
+                  px={{ base: 2, md: 10 }}
+                  fontSize="md"
+                  fontWeight="hairline"
+                >
+                  <span>Name</span>
+                  <chakra.span>Category</chakra.span>
+                  <chakra.span>Type</chakra.span>
+                  <chakra.span>Live</chakra.span>
+                  <chakra.span textAlign={{ md: "right" }}>
+                    Overview link
+                  </chakra.span>
+                </SimpleGrid>
+                <SimpleGrid
+                  spacingY={3}
+                  columns={{ base: 1, md: 5 }}
+                  w="full"
+                  py={2}
+                  px={10}
+                  fontWeight="hairline"
+                >
+                  <span>{ele.name}</span>
+                  <span>{ele.categories}</span>
+                  <span>{ele.type}</span>
+
+                  <chakra.span textOverflow="ellipsis" overflow="hidden">
+                    {ele.isEnabled ? (
+                      <Tag colorScheme="green">Enabled</Tag>
+                    ) : (
+                      <Tag colorScheme="red">Disabled</Tag>
+                    )}
+                  </chakra.span>
+
+                  <Flex justify={{ md: "end" }}>
+                    <a
+                      href={`https://boardroom.io/${ele.cname}/overview`}
+                      target="_blank"
+                    >
+                      <Button colorScheme="blue">
+                        <ExternalLinkIcon></ExternalLinkIcon> &nbsp; View
+                      </Button>
+                    </a>
+                  </Flex>
+                </SimpleGrid>
+              </Flex>
+            );
+          })}
+        </Stack>
+      </Flex>
+    </>
   );
 }

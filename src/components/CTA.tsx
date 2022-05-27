@@ -6,10 +6,10 @@ export const CTA = () => (
   <Container
     flexDirection="row"
     position="fixed"
-    bottom={0}
+    bottom={4}
     width="full"
     maxWidth="3xl"
-    py={3}
+    py={5}
   >
     <Button
       as={ChakraLink}

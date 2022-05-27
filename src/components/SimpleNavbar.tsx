@@ -1,5 +1,13 @@
 import React from "react";
-
+import {
+  Link as ChakraLink,
+  Text,
+  Code,
+  List,
+  ListIcon,
+  ListItem,
+} from "@chakra-ui/react";
+import { CheckCircleIcon, LinkIcon,HamburgerIcon } from "@chakra-ui/icons";
 import {
   Image,
   chakra,
@@ -32,7 +40,7 @@ export default function SimpleNavbar() {
           <Flex>
             <chakra.a
               href="/"
-              title="Choc Home Page"
+              title="Home Page"
               display="flex"
               alignItems="center"
             >
@@ -51,22 +59,70 @@ export default function SimpleNavbar() {
               color="brand.500"
               display={{ base: "none", md: "inline-flex" }}
             >
-              <Button variant="ghost">Features</Button>
-              <Button variant="ghost">Pricing</Button>
-              <Button variant="ghost">Blog</Button>
-              <Button variant="ghost">Company</Button>
-              <Button variant="ghost">Sign in</Button>
+              <ChakraLink
+                isExternal
+                href="https://boardroom.io/"
+                flexGrow={1}
+                mr={2}
+              >
+                <Button colorScheme="gray" size="sm">
+                  Dashboard
+                </Button>
+              </ChakraLink>
+
+              <ChakraLink
+                isExternal
+                href="https://swagger.boardroom.info/"
+                flexGrow={1}
+                mr={2}
+              >
+                <Button colorScheme="gray" size="sm">
+                  Boardroom API
+                </Button>
+              </ChakraLink>
+
+              <ChakraLink
+                isExternal
+                href="https://docs.boardroom.info/"
+                flexGrow={1}
+                mr={2}
+              >
+                <Button colorScheme="gray" size="sm">
+                  Documentation
+                </Button>
+              </ChakraLink>
+
+              <ChakraLink
+                isExternal
+                href="https://discord.gg/EtnpXen9eV"
+                flexGrow={1}
+                mr={2}
+              >
+                <Button colorScheme="gray" size="sm">
+                  Discord
+                </Button>
+              </ChakraLink>
+
+              <ChakraLink
+                isExternal
+                href="https://twitter.com/boardroom_info"
+                flexGrow={1}
+                mr={2}
+              >
+                <Button colorScheme="gray" size="sm">
+                  Twitter
+                </Button>
+              </ChakraLink>
             </HStack>
-            <Button colorScheme="brand" size="sm">
-              Get Started
-            </Button>
+
             <Box display={{ base: "inline-flex", md: "none" }}>
               <IconButton
                 display={{ base: "flex", md: "none" }}
                 aria-label="Open menu"
                 fontSize="20px"
+                icon={<HamburgerIcon/>}
+
                 color={useColorModeValue("gray.800", "inherit")}
-                variant="ghost"
                 onClick={mobileNav.onOpen}
               />
 
@@ -90,21 +146,60 @@ export default function SimpleNavbar() {
                   onClick={mobileNav.onClose}
                 />
 
-                <Button w="full" variant="ghost">
-                  Features
-                </Button>
-                <Button w="full" variant="ghost">
-                  Pricing
-                </Button>
-                <Button w="full" variant="ghost">
-                  Blog
-                </Button>
-                <Button w="full" variant="ghost">
-                  Company
-                </Button>
-                <Button w="full" variant="ghost">
-                  Sign in
-                </Button>
+                <ChakraLink
+                  isExternal
+                  href="https://boardroom.io/"
+                  flexGrow={1}
+                  mr={2}
+                >
+                  <Button colorScheme="gray" size="sm">
+                    Dashboard
+                  </Button>
+                </ChakraLink>
+
+                <ChakraLink
+                  isExternal
+                  href="https://swagger.boardroom.info/"
+                  flexGrow={1}
+                  mr={2}
+                >
+                  <Button colorScheme="gray" size="sm">
+                    Boardroom API
+                  </Button>
+                </ChakraLink>
+
+                <ChakraLink
+                  isExternal
+                  href="https://docs.boardroom.info/"
+                  flexGrow={1}
+                  mr={2}
+                >
+                  <Button colorScheme="gray" size="sm">
+                    Documentation
+                  </Button>
+                </ChakraLink>
+
+                <ChakraLink
+                  isExternal
+                  href="https://discord.gg/EtnpXen9eV"
+                  flexGrow={1}
+                  mr={2}
+                >
+                  <Button colorScheme="gray" size="sm">
+                    Discord
+                  </Button>
+                </ChakraLink>
+
+                <ChakraLink
+                  isExternal
+                  href="https://twitter.com/boardroom_info"
+                  flexGrow={1}
+                  mr={2}
+                >
+                  <Button colorScheme="gray" size="sm">
+                    Twitter
+                  </Button>
+                </ChakraLink>
               </VStack>
             </Box>
           </HStack>

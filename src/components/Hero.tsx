@@ -1,17 +1,29 @@
-import { Flex, Heading } from '@chakra-ui/react'
+import {
+  Flex,
+  Heading,
+  Image,
+  VStack,
+  LightMode,
+  DarkMode,
+} from "@chakra-ui/react";
 
 export const Hero = ({ title }: { title: string }) => (
-  <Flex
+  <VStack
     justifyContent="center"
     alignItems="center"
     height="100vh"
     bgGradient="linear(to-l, heroGradientStart, heroGradientEnd)"
     bgClip="text"
+    mb={20}
   >
+    <LightMode>
+      <Image src="logo-on-light.png" htmlWidth={300} objectFit="contain" />
+    </LightMode>
+   
     <Heading fontSize="6vw">{title}</Heading>
-  </Flex>
-)
+  </VStack>
+);
 
 Hero.defaultProps = {
-  title: 'Boardroom.io Live Protocols',
-}
+  title: "Live Integrations",
+};

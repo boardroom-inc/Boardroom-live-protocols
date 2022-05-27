@@ -11,7 +11,7 @@ import { CheckCircleIcon, LinkIcon } from "@chakra-ui/icons";
 import { Hero } from "../components/Hero";
 import { Container } from "../components/Container";
 import { Main } from "../components/Main";
-import { DarkModeSwitch } from "../components/DarkModeSwitch";
+// import { DarkModeSwitch } from "../components/DarkModeSwitch";
 import { CTA } from "../components/CTA";
 import { Footer } from "../components/Footer";
 
@@ -20,8 +20,8 @@ const Index = () => (
     <Hero />
     <Main>
       <Text color="text" mt={8}>
-        Work in progress.
-        This app exclusively lists all live projects that Boardroom.io supports.
+        This website exclusively lists all live projects that are live on
+        Boardroom.io
       </Text>
 
       <List spacing={3} my={0} color="text">
@@ -69,13 +69,22 @@ const Index = () => (
             Discord <LinkIcon />
           </ChakraLink>
         </ListItem>
+        <ListItem>
+          <ListIcon as={CheckCircleIcon} color="green.500" />
+          <ChakraLink
+            isExternal
+            href="https://twitter.com/boardroom_info"
+            flexGrow={1}
+            mr={2}
+          >
+            Twitter <LinkIcon />
+          </ChakraLink>
+        </ListItem>
       </List>
     </Main>
-    <DarkModeSwitch />
-    <Footer>
-      <Text>Next ❤️ Chakra</Text>
-    </Footer>
     <CTA />
+
+    <Footer></Footer>
   </Container>
 );
 
