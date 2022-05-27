@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Heading } from "@chakra-ui/react";
 import {
+  Tag,
   Table,
   Thead,
   Tbody,
@@ -11,6 +12,9 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
+import SimpleNavbar from "../components/SimpleNavbar";
+
 export default function Protocols() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
@@ -31,18 +35,16 @@ export default function Protocols() {
   console.log(typeof data);
   return (
     <div>
-      <Heading as="h2" size="xl">
-        All Live Protocols
-      </Heading>
-
+      <SimpleNavbar/>
       <TableContainer>
-        <Table variant='striped' colorScheme='blue'>
+        <Table variant="simple" colorScheme="blue">
           <TableCaption>All Boardroom Live Protocols</TableCaption>
           <Thead>
             <Tr>
               <Th>Name</Th>
               <Th>Type</Th>
               <Th>Category</Th>
+              <Th>Live?</Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -52,6 +54,7 @@ export default function Protocols() {
                   <Td>{ele.name}</Td>
                   <Td>{ele.type}</Td>
                   <Td>{ele.categories}</Td>
+                  <Td>{ele.isEnabled ? <Tag colorScheme='green'>Enabled</Tag> : <Tag colorScheme='red'>Disabled</Tag>}</Td>
                 </Tr>
               );
             })}
@@ -61,6 +64,7 @@ export default function Protocols() {
               <Th>Name</Th>
               <Th>Type</Th>
               <Th>Category</Th>
+              <Th>Live?</Th>
             </Tr>
           </Tfoot>
         </Table>
