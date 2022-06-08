@@ -73,7 +73,7 @@ export default function Component() {
               >
                 <SimpleGrid
                   spacingY={3}
-                  columns={{ base: 1, md: 5 }}
+                  columns={{ base: 1, md: 4 }}
                   w={{ base: 200, md: "full" }}
                   textTransform="uppercase"
                   bg={bg2}
@@ -86,14 +86,12 @@ export default function Component() {
                   <span>Name</span>
                   <chakra.span>Category</chakra.span>
                   <chakra.span>Type</chakra.span>
-                  <chakra.span>Live</chakra.span>
-                  <chakra.span textAlign={{ md: "right" }}>
-                    Overview link
-                  </chakra.span>
+                  <chakra.span>Status</chakra.span>
+              
                 </SimpleGrid>
                 <SimpleGrid
                   spacingY={3}
-                  columns={{ base: 1, md: 5 }}
+                  columns={{ base: 1, md: 4 }}
                   w="full"
                   py={2}
                   px={10}
@@ -103,6 +101,8 @@ export default function Component() {
                   <span>{ele.categories}</span>
                   <span>{ele.type}</span>
 
+                  
+
                   <chakra.span textOverflow="ellipsis" overflow="hidden">
                     {ele.isEnabled ? (
                       <Tag colorScheme="green">Enabled</Tag>
@@ -110,17 +110,6 @@ export default function Component() {
                       <Tag colorScheme="red">Disabled</Tag>
                     )}
                   </chakra.span>
-
-                  <Flex justify={{ md: "end" }}>
-                    <a
-                      href={`https://boardroom.io/${ele.cname}/overview`}
-                      target="_blank"
-                    >
-                      <Button colorScheme="blue">
-                        <ExternalLinkIcon></ExternalLinkIcon> &nbsp; View
-                      </Button>
-                    </a>
-                  </Flex>
                 </SimpleGrid>
               </Flex>
             );
